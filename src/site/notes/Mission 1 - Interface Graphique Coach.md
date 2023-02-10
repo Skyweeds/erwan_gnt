@@ -142,3 +142,18 @@ La seconde qui interprétre le résultat de l'Img :
 ```
 
 <h3> - Le controleur </h3>
+Le controleur gère les méthode/fonction,  traité les données fais le lien entre la vue et le modèle.
+
+```C#
+ sealed class Controle //empêche les autres classes d’en hériter. 
+
+ public void CreerProfil(int unPoids, int uneTaille, int unAge, bool unSexe)
+        {
+            profil = new Profil(unPoids, uneTaille, unAge, unSexe);
+            //Serializer.serialize(nomFichier, profil);
+        }
+```
+
+Cette méthode permet de créer un profil en fonction des données saisie par l'utilisateur de l'application.
+
+<h3> - La vue </h3>
