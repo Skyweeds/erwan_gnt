@@ -57,3 +57,4 @@ Cette commande par exemple permet de donner un certain **poids** à un layout ca
 
 # Seconde étape - La méthode  MVC
 
+<h3> - Le Modèle </h3>
