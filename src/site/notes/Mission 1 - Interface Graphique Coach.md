@@ -58,3 +58,87 @@ Cette commande par exemple permet de donner un certain **poids** à un layout ca
 # Seconde étape - La méthode  MVC
 
 <h3> - Le Modèle </h3>
+	Ici j'ai crée la classe Profil, dans cette classe j'ai initialiser dans ce constructeurs les variables (et leurs type) necessaires pour la suite ainsi que les getteurs
+
+```C#
+ public class Profil
+    {
+        private bool sexe;
+        private int poids;
+        private int taille;
+        private int age;
+        private double img;
+        private string message;
+       
+
+        public Profil(int unPoids, int uneTaille, int unAge, bool unSexe)
+        {
+            this.poids = unPoids;
+            this.taille = uneTaille;
+            this.age = unAge;
+            this.sexe = unSexe;
+            CalculerImg();
+            ResultatImg();
+        }
+
+        public bool GetSexe()
+        {
+            return sexe;
+        }
+```
+
+Dans la classe Profil il y à aussi 2 fonctions, la première  qui calcul l'Img :
+```C#
+public void CalculerImg()
+        {
+            double tailleMetre = (double)(taille) / 100;
+
+            if (sexe == true)
+                img = (1.2 * poids / (tailleMetre * tailleMetre) + (0.23 * age) - (10.83 * 1) - 5.4);
+
+            else
+                img = (1.2 * poids / (tailleMetre * tailleMetre) + (0.23 * age) - (10.83 * 0) - 5.4);
+        }
+```
+
+La seconde qui interprétre le résultat de l'Img :
+```C#
+ public string ResultatImg() 
+        {
+        message = "";
+        if (sexe == false)
+            {
+                if (img < 15)
+                {
+                    message = "Trop maigre.";
+                }
+                else if (img > 30)
+                {
+                    message = "Surpoids.";
+                }
+                else
+                {
+                    message = "Parfait.";
+                }
+            }
+        else
+            {
+                if (img < 10)
+                {
+                    message = "Trop maigre.";
+                }
+                 else if (img > 25)
+                {
+                    message = "Surpoids.";
+                }
+                else
+                {
+                    message = "Parfait.";
+                }
+            }
+            return message;
+        }
+
+```
+
+<h3> - Le controleur </h3>
